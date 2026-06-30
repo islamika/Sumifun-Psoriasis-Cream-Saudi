@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", serif;
+  
+  --color-brand-emerald: #059669;
+  --color-brand-dark: #064e3b;
+  --color-brand-deep: #022c22;
+  --color-brand-gold: #d97706;
+  --color-brand-gold-light: #fef08a;
+  --color-brand-gold-dark: #b5942b;
+  --color-brand-light: #fdfdfb;
+  --color-brand-glass: rgba(253, 253, 251, 0.8);
+  
+  --shadow-premium: 0 4px 30px rgba(2, 44, 34, 0.02);
+  --shadow-premium-lg: 0 10px 40px rgba(2, 44, 34, 0.06);
+  --shadow-premium-xl: 0 20px 50px rgba(2, 44, 34, 0.09);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #fdfdfb;
+  color: #1a1a1a;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-emerald);
+}
+
+/* Glassmorphism class */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-dark-effect {
+  background: rgba(2, 44, 34, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Golden text gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fef08a 0%, #d4af37 50%, #b5942b 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Green gradient background */
+.bg-green-gradient {
+  background: linear-gradient(135deg, #064e3b 0%, #022c22 100%);
+}
+
+/* Premium emerald glow */
+.emerald-glow {
+  box-shadow: 0 0 40px rgba(16, 185, 129, 0.15);
+}
+
+/* Pulsing effect */
+@keyframes pulse-gold {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0 20px 10px rgba(212, 175, 55, 0);
+  }
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2.5s infinite;
+}
+
+/* Shake slightly on hover */
+@keyframes dynamic-shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(1deg); }
+  75% { transform: rotate(-1deg); }
+}
+
+.hover-shake:hover {
+  animation: dynamic-shake 0.3s ease-in-out infinite;
+}
