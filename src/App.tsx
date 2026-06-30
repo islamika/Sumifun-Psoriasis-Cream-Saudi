@@ -10,6 +10,7 @@ import Benefits from "./components/Benefits";
 import Features from "./components/Features";
 import Ingredients from "./components/Ingredients";
 import HowToUse from "./components/HowToUse";
+import VideoSection from "./components/VideoSection";
 import BeforeAfter from "./components/BeforeAfter";
 import WhyChooseUs from "./components/WhyChooseUs";
 import Reviews from "./components/Reviews";
@@ -42,6 +43,9 @@ export default function App() {
 
         {/* Clinic-like Step by step application guide */}
         <HowToUse />
+
+        {/* Interactive Simulated Video Section showing mechanism */}
+        <VideoSection />
 
         {/* Interactive Before & After drag visualizer */}
         <BeforeAfter />

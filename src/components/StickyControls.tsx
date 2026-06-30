@@ -73,30 +73,56 @@ export default function StickyControls() {
         )}
       </AnimatePresence>
 
-      {/* Sticky Bottom Buy Bar for Mobile */}
+      {/* Responsive Sticky Bottom Buy Bar (Mobile & Desktop) */}
       <AnimatePresence>
         {showControls && (
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 100 }}
             animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 50 }}
-            className="fixed bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-100 py-3 px-4 z-40 lg:hidden shadow-[0_-5px_25px_rgba(0,0,0,0.06)] flex items-center justify-between gap-4"
+            exit={{ opacity: 0, y: 100 }}
+            transition={{ type: "spring", stiffness: 100, damping: 15 }}
+            className="fixed bottom-0 inset-x-0 bg-white/90 backdrop-blur-xl border-t border-[#064e3b]/10 py-3.5 px-4 md:px-8 z-40 shadow-[0_-10px_35px_rgba(0,0,0,0.08)] flex items-center justify-between gap-6"
           >
-            <div className="text-right flex flex-col">
-              <span className="text-[10px] text-slate-500 font-bold leading-none mb-1">كريم سوميفون الأصلي</span>
-              <div className="flex items-baseline gap-1.5 leading-none">
-                <span className="text-base font-black text-brand-dark">199 ر.س</span>
-                <span className="text-[10px] text-slate-400 line-through">299 ر.س</span>
+            <div className="max-w-7xl mx-auto w-full flex items-center justify-between gap-4">
+              
+              {/* Product Info & Pricing (Right side in RTL) */}
+              <div className="text-right flex flex-col md:flex-row md:items-center gap-1 md:gap-4 shrink-0">
+                <div className="hidden sm:flex flex-col">
+                  <span className="text-xs text-[#064e3b] font-black tracking-wide">كريم سوميفون الأصلي</span>
+                  <span className="text-[10px] text-slate-500 font-bold">المركب العشبي المطور 🇸🇦</span>
+                </div>
+                
+                <div className="flex items-center gap-2">
+                  <div className="flex items-baseline gap-1.5 leading-none">
+                    <span className="text-lg md:text-2xl font-black text-[#064e3b]">199 ر.س</span>
+                    <span className="text-xs text-slate-400 line-through font-bold">299 ر.س</span>
+                  </div>
+                  <span className="hidden md:inline-block bg-brand-gold/20 text-amber-800 text-[10px] font-black px-2 py-0.5 rounded-full">
+                    وفر 100 ر.س (خصم 33%)
+                  </span>
+                </div>
               </div>
-            </div>
 
-            <button
-              onClick={scrollToForm}
-              className="flex-1 bg-brand-dark hover:bg-brand-emerald text-white font-extrabold text-xs sm:text-sm py-3 px-5 rounded-2xl flex items-center justify-center gap-2 shadow-md animate-pulse-gold select-none cursor-pointer"
-            >
-              <ShoppingCart className="w-4 h-4 text-brand-gold" />
-              <span>اطلب الآن - دفع عند الاستلام</span>
-            </button>
+              {/* Fast Trust Indicators on Desktop */}
+              <div className="hidden lg:flex items-center gap-6 text-xs text-slate-600 font-extrabold">
+                <span className="flex items-center gap-1.5 text-[#064e3b]">
+                  🚚 شحن مجاني وسريع لكافة المدن
+                </span>
+                <span className="flex items-center gap-1.5 text-[#064e3b]">
+                  🛡️ الدفع عند الاستلام بعد المعاينة
+                </span>
+              </div>
+
+              {/* Action Button (Left side in RTL) */}
+              <button
+                onClick={scrollToForm}
+                className="flex-1 md:flex-none md:px-10 bg-[#064e3b] hover:bg-[#022c22] text-white font-black text-xs sm:text-sm md:text-base py-3.5 px-5 rounded-2xl flex items-center justify-center gap-2.5 shadow-lg shadow-[#064e3b]/10 hover:shadow-xl transition-all duration-300 animate-pulse-gold select-none cursor-pointer border border-[#064e3b]/10 hover:scale-[1.02]"
+              >
+                <ShoppingCart className="w-4.5 h-4.5 text-brand-gold stroke-[2.5]" />
+                <span>اطلب الآن - الدفع عند الاستلام</span>
+              </button>
+
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

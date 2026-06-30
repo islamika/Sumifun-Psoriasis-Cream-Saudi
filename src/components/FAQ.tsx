@@ -16,24 +16,24 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="py-20 bg-[#fdfdfb] relative overflow-hidden border-t border-emerald-900/5">
+    <section id="faq" className="py-24 bg-gradient-to-b from-[#fbfbfa] to-[#fafaf8] relative overflow-hidden border-t border-emerald-900/5">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span className="text-xs font-bold text-amber-600 bg-amber-500/10 border border-amber-500/20 px-3.5 py-1.5 rounded-full inline-block mb-4">
-            تساؤلات واستفسارات
+          <span className="text-xs font-extrabold text-[#064e3b] bg-[#064e3b]/5 border-2 border-[#064e3b]/10 px-4 py-2 rounded-full inline-flex items-center gap-2 mb-4 shadow-sm">
+            <span>✨ إجابات علمية شافية</span>
           </span>
-          <h2 className="text-3xl md:text-4xl font-light text-brand-dark mb-6 tracking-tight leading-tight">
-            الأسئلة الشائعة حول كريم سوميفون <span className="font-serif italic text-brand-gold">في السعودية</span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#064e3b] mb-6 tracking-tight leading-tight">
+            استفسارات تهمك: <span className="font-serif italic text-brand-gold">الأسئلة الشائعة</span>
           </h2>
-          <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-            قبل الشراء، استعرض إجابات تفصيلية وشاملة وموثوقة عن أبرز الأسئلة التي تطرح على فريق خدمة العملاء والاستشارات الطبية لدينا.
+          <p className="text-slate-700 text-sm md:text-base leading-relaxed font-medium">
+            تصفح الإجابات الشافية والموثقة سريرياً من لجنة الخبراء لدينا حول أفضل طرق الاستخدام والنتائج المتوقعة مع كريم سوميفون الأصلي.
           </p>
         </div>
 
         {/* FAQ Accordion List */}
-        <div className="max-w-4xl mx-auto flex flex-col gap-4">
+        <div className="max-w-4xl mx-auto flex flex-col gap-5">
           {faqData.map((faq, idx) => {
             const isOpen = openId === faq.id;
 
@@ -44,10 +44,10 @@ export default function FAQ() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className={`rounded-2xl border transition-all duration-300 overflow-hidden ${
+                className={`rounded-3xl border-2 transition-all duration-300 overflow-hidden ${
                   isOpen
-                    ? "bg-white border-brand-emerald/20 shadow-premium-lg"
-                    : "bg-white/80 border-emerald-900/10 shadow-premium hover:border-emerald-900/20"
+                    ? "bg-white border-[#064e3b]/30 shadow-premium-xl"
+                    : "bg-white/90 border-[#064e3b]/5 shadow-premium hover:border-[#064e3b]/20"
                 }`}
               >
                 {/* Trigger Header Button */}
@@ -55,23 +55,25 @@ export default function FAQ() {
                   onClick={() => toggleFAQ(faq.id)}
                   className="w-full py-5 md:py-6 px-6 md:px-8 text-right flex items-center justify-between gap-4 focus:outline-none cursor-pointer"
                 >
-                  <div className="flex items-center gap-3.5">
-                    <div className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 ${
-                      isOpen ? "bg-[#064e3b] text-white" : "bg-slate-100 text-slate-500"
+                  <div className="flex items-center gap-4">
+                    <div className={`w-10 h-10 rounded-2xl flex items-center justify-center shrink-0 border transition-all duration-300 ${
+                      isOpen 
+                        ? "bg-[#064e3b] text-brand-gold border-[#064e3b]" 
+                        : "bg-slate-50 text-slate-500 border-slate-100"
                     }`}>
-                      <HelpCircle className="w-4.5 h-4.5" />
+                      <HelpCircle className="w-5 h-5 stroke-[2.5]" />
                     </div>
-                    <span className={`font-bold text-sm md:text-base tracking-tight ${
-                      isOpen ? "text-brand-dark" : "text-slate-700 hover:text-brand-dark"
+                    <span className={`font-black text-xs sm:text-sm md:text-base tracking-tight transition-colors duration-200 ${
+                      isOpen ? "text-[#064e3b]" : "text-slate-800 hover:text-[#064e3b]"
                     }`}>
                       {faq.question}
                     </span>
                   </div>
 
-                  <span className={`p-1.5 rounded-xl transition-transform duration-300 ${
-                    isOpen ? "bg-brand-emerald/10 text-brand-emerald rotate-180" : "bg-slate-50 text-slate-400"
+                  <span className={`p-2 rounded-xl transition-all duration-300 ${
+                    isOpen ? "bg-[#064e3b]/10 text-[#064e3b] rotate-180" : "bg-slate-50 text-slate-400"
                   }`}>
-                    <ChevronDown className="w-4 h-4" />
+                    <ChevronDown className="w-4 h-4 stroke-[2.5]" />
                   </span>
                 </button>
 
@@ -84,7 +86,7 @@ export default function FAQ() {
                       exit={{ height: 0, opacity: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <div className="px-6 md:px-8 pb-6 md:pb-8 pt-2 text-xs md:text-sm text-slate-600 leading-relaxed border-t border-slate-50/50">
+                      <div className="px-6 md:px-8 pb-6 md:pb-8 pt-2 text-xs md:text-sm text-slate-700 leading-relaxed font-bold border-t border-slate-50/50">
                         {faq.answer}
                       </div>
                     </motion.div>
@@ -96,18 +98,25 @@ export default function FAQ() {
         </div>
 
         {/* Dynamic WhatsApp Support Button */}
-        <div className="mt-16 bg-white/80 p-6 md:p-8 rounded-2xl border border-emerald-900/10 shadow-premium max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="text-right">
-            <h4 className="font-extrabold text-base text-brand-dark mb-1">لديك استفسار آخر لم نجب عليه؟</h4>
-            <p className="text-xs text-slate-500 leading-relaxed">فريق الاستشارات وخدمة العملاء السعودي متاح للإجابة على تساؤلاتك 24 ساعة عبر الواتساب.</p>
+        <div className="mt-16 bg-white p-6 md:p-10 rounded-3xl border-2 border-[#064e3b]/15 shadow-premium-xl max-w-4xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 relative overflow-hidden group">
+          <div className="absolute top-0 left-0 w-24 h-24 bg-emerald-500/5 rounded-full blur-2xl pointer-events-none" />
+          
+          <div className="text-right z-10">
+            <h4 className="font-black text-lg md:text-xl text-[#064e3b] mb-1.5 flex items-center gap-2">
+              <span>💬 هل لديك تساؤل خاص بوضعك الصحي؟</span>
+            </h4>
+            <p className="text-xs md:text-sm text-slate-600 font-bold leading-relaxed">
+              يسعد خبراؤنا السعوديون تقديم استشارات مجانية وسرية كاملة حول حالتك وطريقة الاستخدام المثلى 24 ساعة عبر الواتساب.
+            </p>
           </div>
+          
           <a
-            href="https://wa.me/966500000000?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%83%D8%B1%D9%8A%D9%85%20%D8%B3%D9%84%D9%8A%D9%85%D9%81%D9%88%D9%86%20%D9%84%D9%84%D8%B5%D8%AF%D9%81%D9%8a%D9%87"
+            href="https://wa.me/966500000000?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%A3%D8%B1%D9%8A%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D9%83%D8%B1%D9%84%D9%85%20%D8%B3%D9%84%D9%8A%D9%85%D9%81%D9%88%D9%86%20%D9%84%D9%84%D8%B5%D8%AF%D9%81%D9%8a%D9%87"
             target="_blank"
             rel="noopener noreferrer"
-            className="whitespace-nowrap bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold text-xs md:text-sm px-6 py-3.5 rounded-2xl flex items-center gap-2 shadow-md hover:shadow-lg transition-all"
+            className="whitespace-nowrap bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs md:text-sm px-8 py-4.5 rounded-2xl flex items-center gap-2 shadow-md hover:shadow-2xl transition-all duration-300 hover:scale-[1.03] cursor-pointer z-10 shrink-0"
           >
-            <span>تواصل معنا على الواتساب</span>
+            <span>استشارة مجانية فورية بالواتساب</span>
           </a>
         </div>
 
